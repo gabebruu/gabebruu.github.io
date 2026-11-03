@@ -20,7 +20,9 @@ const Ico = ({ name }) => {
     mail: <><rect x="4" y="10" width="40" height="28" fill="#fff" stroke="#000" strokeWidth="2" /><path d="M4 10l20 17 20-17" fill="none" stroke="#000" strokeWidth="2" /></>,
     insta: <><rect x="6" y="6" width="36" height="36" rx="10" fill="#ff4fa3" stroke="#000" strokeWidth="2" /><circle cx="24" cy="24" r="8" fill="none" stroke="#fff" strokeWidth="3" /><circle cx="34" cy="14" r="2.5" fill="#fff" /></>,
     star: <path d="M24 3l6 14 15 2-11 10 3 15-13-8-13 8 3-15L3 19l15-2z" fill="#ffe14d" stroke="#000" strokeWidth="2" strokeLinejoin="round" />,
-    info: <><circle cx="24" cy="24" r="20" fill="#fff" stroke="#000" strokeWidth="2" /><circle cx="24" cy="24" r="17" fill="#ffffff" /><path d="M24 20v14M24 12v4" stroke="#fff" strokeWidth="4" /></>,
+    film: <><rect x="4" y="10" width="40" height="28" fill="#fff" stroke="#000" strokeWidth="2" /><path d="M4 16h40M4 32h40" stroke="#000" strokeWidth="2" /><path d="M20 20v8l8-4z" fill="#ff4fa3" stroke="#000" strokeWidth="1.5" strokeLinejoin="round" /></>,
+    cal: <><rect x="5" y="9" width="38" height="33" fill="#fff" stroke="#000" strokeWidth="2" /><rect x="5" y="9" width="38" height="8" fill="#ff4fa3" stroke="#000" strokeWidth="2" /><path d="M14 5v8M34 5v8" stroke="#000" strokeWidth="2.5" /><path d="M12 24h6M21 24h6M30 24h6M12 32h6M21 32h6" stroke="#000" strokeWidth="3" /></>,
+    info: <><circle cx="24" cy="24" r="20" fill="#1f5fd6" stroke="#000" strokeWidth="2" /><path d="M24 21v14M24 13v4" stroke="#fff" strokeWidth="4" /></>,
   }[name];
   return <svg viewBox="0 0 48 48" aria-hidden="true">{p}</svg>;
 };
@@ -147,7 +149,7 @@ function Loader({ onDone }) {
   );
 }
 
-const SECTIONS = ["top", "about", "work", "desk", "contact"];
+const SECTIONS = ["top", "about", "services", "work", "desk", "contact"];
 
 function Taskbar({ onShutdown }) {
   const { t: tr, lang, setLang } = useT();
@@ -615,7 +617,7 @@ function Desk() {
             </div>
             {deskItems.map((p) => (
               <div key={p.name} className="drag">
-                <Win title={p.name} onClose={close}>
+                <Win title="" onClose={close}>
                   <div className="win__body"><img src={p.thumb} alt={`${pretty(p.name)}, ${t("client." + p.tag)}`} loading="lazy" /><p>{t("client." + p.tag)}</p></div>
                 </Win>
               </div>
@@ -624,6 +626,59 @@ function Desk() {
         </Win>
       </div>
     </section>
+  );
+}
+
+function Services() {
+  const { t } = useT();
+  const list = t("services");
+  return (
+    <section id="services" className="section">
+      <div className="ghost" aria-hidden="true" style={{ "--n": t("ghost.services").length }}>{t("ghost.services")}</div>
+      <div className="wrap">
+        <AnimatedTitle className="big" text={t("services.title")} />
+        <Win title={"C:" + String.fromCharCode(92) + t("nav.services")} className="services reveal" icon={<Ico name="folder" />}>
+          <div className="win__menu" aria-hidden="true"><span>{t("menu.file")}</span><span>{t("menu.edit")}</span><span>{t("menu.view")}</span><span>{t("menu.help")}</span></div>
+          <div className="sunken svc-grid">
+            {list.map((s) => (
+              <div key={s.n} className="svc">
+                <Ico name={s.i} />
+                <h3>{s.n}</h3>
+                <ul>{s.d.map((d) => <li key={d}>{d}</li>)}</ul>
+              </div>
+            ))}
+          </div>
+          <div className="status"><span>{list.length} {t("objects")}</span><span>{t("services.status")}</span></div>
+        </Win>
+      </div>
+    </section>
+  );
+}
+
+/* clipe assistente (desenho próprio): clica para a próxima dica */
+function Clippy() {
+  const { t } = useT();
+  const tips = t("clippy");
+  const [i, setI] = useState(0);
+  const ref = useRef(null);
+  const next = () => {
+    setI((i + 1) % tips.length);
+    if (!reduced()) gsap.fromTo(ref.current, { rotate: -14 }, { rotate: 0, duration: 0.7, ease: "elastic.out(1, 0.35)" });
+  };
+  return (
+    <div className="clippy">
+      <button ref={ref} className="clippy__btn" onClick={next} aria-label={t("clippy.next")}>
+      <svg viewBox="0 0 40 64" aria-hidden="true">
+        <path d="M14 60V16a8 8 0 0 1 16 0v34a5 5 0 0 1-10 0V24" fill="none" stroke="#4a4a4a" strokeWidth="5.5" strokeLinecap="round" />
+        <path d="M14 60V16a8 8 0 0 1 16 0v34a5 5 0 0 1-10 0V24" fill="none" stroke="#e6e6e6" strokeWidth="2.5" strokeLinecap="round" />
+        <ellipse cx="13" cy="21" rx="4.5" ry="5.5" fill="#fff" stroke="#000" strokeWidth="1.5" />
+        <ellipse cx="27" cy="21" rx="4.5" ry="5.5" fill="#fff" stroke="#000" strokeWidth="1.5" />
+        <circle cx="14.5" cy="22" r="2" /><circle cx="28.5" cy="22" r="2" />
+        <path d="M8 12q5-4 9 0M23 12q5-4 9 0" fill="none" stroke="#000" strokeWidth="2" strokeLinecap="round" />
+      </svg>
+      </button>
+      <p className="clippy__tip" aria-live="polite">{tips[i]}</p>
+    </div>
   );
 }
 
@@ -644,12 +699,12 @@ function Contact() {
         <div className="contact__grid">
           <Win title={t("contact.dialog")} className="dialog reveal" icon={<span aria-hidden="true">♥</span>}>
             <div className="dialog__row">
-              <Ico name="info" />
               <div>
                 <h2>{t("about.question")}</h2>
                 <p>{t("contact.p")}</p>
               </div>
             </div>
+            <Clippy />
             <div className="dialog__btns">
               <a className="b95 b95--def" href={IG} target="_blank" rel="noreferrer">{t("contact.ig")}</a>
               <a className="b95" href="mailto:gabebruu@icloud.com?subject=Portef%C3%B3lio%20Bruna">{t("contact.mail")}</a>
@@ -717,6 +772,7 @@ export default function App() {
       <Hero ready={ready} />
       <div style={{ padding: "14px 0 0" }}><Ticker /></div>
       <About />
+      <Services />
       <Work />
       <Desk />
       <Contact />

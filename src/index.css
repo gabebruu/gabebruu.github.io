@@ -150,7 +150,18 @@ a.b95 { color: var(--dk); }
 /* contacto */
 .dialog { max-width: 32.5rem; margin-inline: auto; }
 .dialog__row { display: flex; gap: 1rem; align-items: flex-start; padding: 1.125rem 0.875rem 0.5rem; }
-.dialog__row svg { flex: none; width: 2.75rem; height: 2.75rem; }
+.clippy { display: flex; gap: 0.75rem; align-items: flex-end; padding: 0.25rem 0.875rem 0.5rem; }
+.clippy__btn { flex: none; width: 4rem; padding: 0; background: none; border: 0; transform-origin: 50% 90%; }
+.clippy__btn svg { display: block; width: 100%; filter: drop-shadow(2px 3px 0 rgba(0,0,0,.25)); }
+.clippy__tip { position: relative; flex: 1; margin-bottom: 1.5rem; padding: 0.5rem 0.75rem; min-height: 3.5rem; background: var(--tip); border: 1px solid var(--dk); border-radius: 0.5rem; font-size: 0.8125rem; box-shadow: 3px 3px 0 rgba(0,0,0,.25); }
+.clippy__tip::before { content: ""; position: absolute; left: -0.5rem; bottom: 0.75rem; width: 0.875rem; height: 0.875rem; background: var(--tip); border: solid var(--dk); border-width: 0 0 1px 1px; transform: rotate(45deg); }
+/* serviços */
+.services { max-width: 60rem; margin: 2.5rem auto 0; }
+.svc-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 20rem), 1fr)); gap: 1.25rem 1.5rem; padding: 1.25rem; }
+.svc { display: grid; grid-template-columns: 2.75rem 1fr; gap: 0.25rem 0.75rem; align-content: start; }
+.svc svg { width: 2.75rem; height: 2.75rem; grid-row: span 2; }
+.svc h3 { font: 700 1.05rem/1.2 var(--pixel); align-self: center; }
+.svc ul { padding-left: 1.1rem; font-size: 0.875rem; }
 .dialog h2 { font-family: var(--display); font-weight: 400; font-size: 1.7rem; line-height: 1.15; }
 .dialog p { margin-top: 0.5rem; }
 .dialog__btns { display: flex; gap: 0.5rem; justify-content: center; flex-wrap: wrap; padding: 0.625rem 0.5rem 0.75rem; }
