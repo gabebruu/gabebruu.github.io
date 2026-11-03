@@ -289,7 +289,7 @@ function AnimatedTitle({ text, className = "" }) {
   useGSAP(() => {
     if (reduced()) { gsap.set(".animated-word", { opacity: 1, transform: "none" }); return; }
     gsap.to(".animated-word", { opacity: 1, transform: "translate3d(0,0,0) rotateY(0) rotateX(0)", ease: "power2.inOut", stagger: 0.04, scrollTrigger: { trigger: ref.current, start: "top 88%", once: true } });
-  }, { scope: ref });
+  }, { scope: ref, dependencies: [text], revertOnUpdate: true }); // ao mudar de idioma o nº de palavras muda: anima de novo, senão as novas ficam invisíveis
   return (
     <h2 ref={ref} className={`animated-title ${className}`}>
       {text.split(" ").map((w, i) => <span key={i} className="animated-word">{w}&nbsp;</span>)}
