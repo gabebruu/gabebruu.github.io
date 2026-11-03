@@ -1,0 +1,7 @@
+node_modules
+dist
+_imagens-nao-usadas
+.claude
+.agents
+.codex
+skills-lock.json
