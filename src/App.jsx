@@ -177,7 +177,7 @@ function Taskbar({ onShutdown }) {
         <div className="startmenu" role="menu">
           <div className="startmenu__side"><b>Bruna 95</b></div>
           <ul>
-            {SECTIONS.slice(1).map((id) => <li key={id}><button role="menuitem" onClick={() => pick(id)}>{tr("nav." + id)}</button></li>)}
+            {SECTIONS.map((id) => <li key={id}><button role="menuitem" onClick={() => pick(id)}>{tr("nav." + id)}</button></li>)}
             <li><hr /></li>
             <li><button role="menuitem" onClick={() => { setMenu(false); onShutdown(); }}>{tr("shutdown")}</button></li>
           </ul>

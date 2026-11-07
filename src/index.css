@@ -1,4 +1,4 @@
-html { font-size: clamp(16px, calc(0.6vw + 10px), 24px); }
+html { font-size: clamp(16px, calc(0.6vw + 10px), 24px); overflow-x: clip; } /* nada rodado ou deslocado alarga a página no telemóvel */
 :root {
   --teal: #008080; --silver: #c0c0c0; --hi: #fff; --mid: #808080; --dk: #000; --face-hi: #dfdfdf;
   --pink: #ff4fa3; --rose: color-mix(in srgb, var(--pink) 55%, #000); --tip: #ffffe1; --ink: color-mix(in srgb, var(--pink) 25%, #000); --sel: var(--rose); --lime: #ffc2e0;
@@ -59,7 +59,7 @@ a.b95 { color: var(--dk); }
 .taskbar .grip { width: 2px; align-self: stretch; margin-inline: 2px; border-left: 1px solid var(--mid); border-right: 1px solid var(--hi); }
 .taskbar__tasks { display: flex; gap: 0.25rem; flex: 1; min-width: 0; overflow-x: auto; scrollbar-width: none; }
 .taskbar__tasks .b95 { flex: 0 0 auto; min-width: 6.875rem; justify-content: flex-start; font-size: 0.8125rem; }
-@media (max-width: 560px) { .taskbar__tasks .b95 { min-width: 0; padding: 2px 0.5rem; font-size: 0.75rem; } .taskbar .tray { padding: 0; border: 0; } .tray > :not(.lang) { display: none; } .taskbar .start { padding-inline: 0.375rem; } }
+@media (max-width: 560px) { .taskbar__tasks { visibility: hidden; } .taskbar .start { padding-inline: 0.375rem; } } /* no telemóvel as secções ficam no menu Iniciar */
 .tray { display: flex; align-items: center; gap: 0.5rem; padding: 2px 0.625rem; font-size: 0.75rem; border: 1px solid; border-color: var(--mid) var(--hi) var(--hi) var(--mid); height: 1.75rem; flex: none; }
 .startmenu { position: fixed; z-index: 850; left: 0.25rem; bottom: calc(var(--bar-h) - 2px); display: flex; width: 14.375rem; background: var(--silver); border: 2px solid; border-color: var(--hi) var(--dk) var(--dk) var(--hi); box-shadow: inset -1px -1px var(--mid), 0.25rem 0.25rem 0 rgba(0,0,0,.35); }
 .startmenu__side { width: 1.875rem; background: linear-gradient(0deg, var(--rose), var(--pink)); display: flex; align-items: flex-end; justify-content: center; padding-bottom: 0.5rem; }
@@ -224,7 +224,8 @@ a.b95 { color: var(--dk); }
 .card a { color: var(--dk); text-underline-offset: 3px; }
 @media (max-width: 800px) { .contact__grid { grid-template-columns: 1fr; } .contact__grid .dialog, .card { margin-inline: auto; } }
 
-.reels { padding: 1.25rem; display: grid; gap: 1.5rem; grid-template-columns: repeat(auto-fill, 21rem); justify-content: center; background: #fff; }
+.reels { padding: 1.25rem; display: grid; gap: 1.5rem; grid-template-columns: repeat(auto-fill, min(100%, 21rem)); justify-content: center; background: #fff; }
+@media (max-width: 560px) { .reels { padding: 0.75rem; gap: 1rem; } }
 .reel { margin: 0; padding: 0.3rem; background: var(--pink); border: 2px solid; border-color: #fff #000 #000 #fff; box-shadow: 0.3rem 0.3rem 0 #000; }
 .reel__bar { display: flex; justify-content: space-between; align-items: center; background: #000; color: #fff; font-family: var(--pixel); font-size: 0.9rem; padding: 0.15rem 0.4rem; margin-bottom: 0.3rem; }
 .reel__bar i { font-style: normal; background: #c0c0c0; color: #000; border: 2px solid; border-color: #fff #000 #000 #fff; padding: 0 0.35rem; line-height: 1.1; }
