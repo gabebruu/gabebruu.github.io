@@ -44,14 +44,24 @@ export const clients = ["anarkitty", "vintage"];
 export const ticker = ["lebuse marketing", "anarkitty handmade", "clothes room vintage", "estratégia", "planeamento mensal", "reels", "posts", "stories", "conteúdo com personalidade"];
 
 // Incorporações oficiais do Instagram (@anarkitty.handmade). kind: reel | p
+// reels originais (comprimidos com ffmpeg para 540px em public/video; capa = frame aos 1s)
+const v = (file, title, tag) => ({ src: `video/${file}.mp4`, poster: `video/${file}.webp`, title, tag });
+export const videos = [
+  v("anarkitty_01", "Antes e depois", "anarkitty"),
+  v("anarkitty_02", "Porta-joias nuvem", "anarkitty"),
+  v("anarkitty_03", "Quando vejo o meu próprio serviço", "anarkitty"),
+  v("anarkitty_04", "Your new jewelry dish", "anarkitty"),
+  v("anarkitty_05", "Rings off, nails on", "anarkitty"),
+  v("anarkitty_06", "If you…", "anarkitty"),
+  v("anarkitty_07", "One of my favorite pieces", "anarkitty"),
+  v("anarkitty_08", "Give me a…", "anarkitty"),
+  v("anarkitty_09", "Coração com olho", "anarkitty"),
+  v("anarkitty_10", "Eu sou dona de um pequeno negócio", "anarkitty"),
+  v("anarkitty_11", "Quem faz", "anarkitty"),
+  v("lebuse_01", "Acabou…", "lebuse"),
+];
+
 export const embeds = [
-  { kind: "reel", code: "Del5LaKC3y4", title: "Sorteio", tag: "anarkitty" },
-  { kind: "reel", code: "DeCpxk3hb2h", title: "This is real, this is me", tag: "anarkitty" },
-  { kind: "reel", code: "DfRo5iQCkJG", title: "Place your order", tag: "anarkitty" },
-  { kind: "reel", code: "DfPAUNKCfCQ", title: "Pedidos pelo link da bio", tag: "anarkitty" },
-  { kind: "reel", code: "DfFld4XCZGT", title: "Art for weirdos", tag: "anarkitty" },
-  { kind: "p", code: "DfSdAL5jba8", title: "Cerâmicas disponíveis", tag: "anarkitty" },
-  { kind: "p", code: "DfIMhnTAvmh", title: "Macabrinhos no Quimera Mercado", tag: "anarkitty" },
   { kind: "reel", code: "DWJ93yIiMw5", title: "Available on Vinted", tag: "vintage" },
   { kind: "reel", code: "DMXmoFYobV6", title: "Feira do Marquês", tag: "vintage" },
   { kind: "reel", code: "DF-okvXoQNt", title: "This is my clubbing", tag: "vintage" },

@@ -3,7 +3,7 @@ import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { Draggable } from "gsap/Draggable";
-import { projects, IG, embeds, clients, pretty } from "./data.js";
+import { projects, IG, embeds, videos, clients, pretty } from "./data.js";
 import { useT, LangCtx, detect, dict } from "./i18n.js";
 
 gsap.registerPlugin(ScrollTrigger, Draggable);
@@ -505,11 +505,13 @@ function Work() {
         <AnimatedTitle className="big work__title" text={t("work.heading")} />
         <Files tag="lebuse" title="Lebuse Marketing" desc={t("work.lebuse")} setOpen={setOpen} />
         <div style={{ height: 36 }} />
-        <Files tag="anarkitty" title="Anarkitty\\Stories" desc={t("work.stories")} setOpen={setOpen} />
+        <Files tag="anarkitty" title="Anarkitty\Stories" desc={t("work.stories")} setOpen={setOpen} />
         <div style={{ height: 36 }} />
         <Files tag="vintage" title="ClothesRoom\Drops" desc={t("work.drops")} setOpen={setOpen} />
         <div style={{ height: 36 }} />
         <Files tag="art" title="Ilustracao" desc={t("work.art")} setOpen={setOpen} />
+        <div style={{ height: 36 }} />
+        <Feed tag="lebuse" title="Lebuse Reels" desc={t("work.lebuseReel")} />
         <div style={{ height: 36 }} />
         <Feed tag="anarkitty" title="Anarkitty Reels" desc={t("work.anarkitty")} />
         <div style={{ height: 36 }} />
@@ -554,14 +556,29 @@ function Embed({ e }) {
   );
 }
 
+// só toca um vídeo de cada vez
+const solo = (e) => document.querySelectorAll("video").forEach((v) => v !== e.target && v.pause());
+
+function Video({ e }) {
+  return (
+    <figure className="reel">
+      <figcaption className="reel__bar"><span>{e.title}</span><i aria-hidden="true">x</i></figcaption>
+      <div className="reel__body reel__body--video">
+        <video src={e.src} poster={e.poster} controls preload="none" playsInline onPlay={solo} aria-label={e.title} />
+      </div>
+    </figure>
+  );
+}
+
 function Feed({ tag, title, desc }) {
   const { t } = useT();
-  const list = embeds.filter((e) => e.tag === tag);
+  const local = videos.filter((e) => e.tag === tag);
+  const list = local.length ? local : embeds.filter((e) => e.tag === tag);
   return (
     <Win title={"C:" + String.fromCharCode(92) + title} className="reveal" icon={<Ico name="insta" />} collapsible count={list.length}>
       <p className="feed__desc">{desc}</p>
-      <div className="sunken reels">{list.map((e) => <Embed key={e.code} e={e} />)}</div>
-      <div className="status"><span>{list.length} {t("objects")}</span><span>{t("embedded")}</span></div>
+      <div className="sunken reels">{list.map((e) => (e.src ? <Video key={e.src} e={e} /> : <Embed key={e.code} e={e} />))}</div>
+      <div className="status"><span>{list.length} {t("objects")}</span><span>{t(local.length ? "videos" : "embedded")}</span></div>
     </Win>
   );
 }
