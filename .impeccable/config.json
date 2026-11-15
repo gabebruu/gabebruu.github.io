@@ -1,0 +1,26 @@
+{
+  "detector": {
+    "ignoreRules": [],
+    "ignoreFiles": [],
+    "ignoreValues": [
+      {
+        "rule": "flat-type-hierarchy",
+        "value": "*",
+        "files": [
+          "index.html"
+        ],
+        "createdAt": "2026-11-15T18:29:28.749Z",
+        "reason": "assistant judgment, not user confirmed: unstyled crawler fallback inside #root, replaced by React on mount, never seen as the real design"
+      },
+      {
+        "rule": "flat-type-hierarchy",
+        "value": "*",
+        "files": [
+          "en/index.html"
+        ],
+        "createdAt": "2026-11-15T18:29:29.085Z",
+        "reason": "assistant judgment, not user confirmed: unstyled crawler fallback inside #root, replaced by React on mount, never seen as the real design"
+      }
+    ]
+  }
+}

@@ -242,7 +242,7 @@ function Hero({ ready }) {
         </div>
         <Win title={t("welcome")} icon={<span aria-hidden="true">♥</span>} style={{ position: "relative", zIndex: 2 }}>
           <div className="win__body sunken" style={{ margin: 6, padding: "22px 22px 26px" }}>
-            <h1 className="hero__title" aria-label="Bruna, social media">
+            <h1 className="hero__title" aria-label="Bruna Rodrigues, social media">
               {["BRUNA", "SOCIAL MEDIA"].map((w) => (
                 <span key={w} className="w" aria-hidden="true">{w.split("").map((c, i) => <i key={i}>{c === " " ? "\u00a0" : c}</i>)}</span>
               ))}
@@ -700,7 +700,7 @@ function Clippy() {
 }
 
 function Contact() {
-  const { t } = useT();
+  const { t, lang } = useT();
   return (
     <section id="contact" className="section">
       <div className="ghost" aria-hidden="true" style={{ "--n": t("ghost.contact").length }}>{t("ghost.contact")}</div>
@@ -725,6 +725,7 @@ function Contact() {
             <div className="dialog__btns">
               <a className="b95 b95--def" href={IG} target="_blank" rel="noreferrer">{t("contact.ig")}</a>
               <a className="b95" href="mailto:gabebruu@icloud.com?subject=Portef%C3%B3lio%20Bruna">{t("contact.mail")}</a>
+              <a className="b95" href={lang === "pt" ? "cv-pt.html" : "cv.html"} target="_blank" rel="noreferrer">{t("contact.cv")}</a>
             </div>
           </Win>
           <Win title={t("contact.card")} className="card reveal" icon={<Ico name="star" />}>

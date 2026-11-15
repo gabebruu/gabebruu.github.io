@@ -1,6 +1,7 @@
 import { createContext, useContext } from "react";
 
 export const detect = () => {
+  if (/\/en\/?$/.test(location.pathname)) return "en"; // página /en/ é sempre inglês
   try { const saved = localStorage.getItem("lang"); if (saved === "pt" || saved === "en") return saved; } catch { /* sem storage */ }
   return (navigator.language || "pt").toLowerCase().startsWith("pt") ? "pt" : "en";
 };
@@ -44,7 +45,7 @@ export const dict = {
     "viewer.title": "Visualizador", prev: "‹ Anterior", next: "Seguinte ›", close: "Fechar", closeWin: "Fechar janela", note: "conteúdo criado do zero",
     "desk.title": "Arruma a minha secretária", "desk.win": "Ambiente de trabalho", "desk.hint": "Arrasta as janelas pela barra", "desk.reset": "Reorganizar",
     "ghost.contact": "CONTACTO", "contact.title": "Vamos fazer barulho?", "contact.dialog": "Mensagem", "contact.p": "Conta-me o que queres comunicar. Respondo por mensagem no Instagram ou por email.",
-    "contact.ig": "Abrir Instagram", "contact.mail": "Enviar email", "contact.card": "Contactos", "contact.tag": "responde-se em 24h",
+    "contact.ig": "Abrir Instagram", "contact.mail": "Enviar email", "contact.cv": "Ver CV", "contact.card": "Contactos", "contact.tag": "responde-se em 24h",
     "contact.foot": "© Bruna · Este site funciona melhor em ecrã grande.", "contacts": "contactos",
     "off.text": "Agora já pode desligar o computador com segurança.", "off.back": "(clica para voltar)",
     ticker: ["lebuse marketing", "anarkitty handmade", "clothes room vintage", "estratégia", "planeamento mensal", "reels", "posts", "stories", "conteúdo com personalidade"],
@@ -87,7 +88,7 @@ export const dict = {
     "viewer.title": "Viewer", prev: "‹ Previous", next: "Next ›", close: "Close", closeWin: "Close window", note: "content created from scratch",
     "desk.title": "Tidy up my desk", "desk.win": "Desktop", "desk.hint": "Drag the windows by their title bar", "desk.reset": "Rearrange",
     "ghost.contact": "CONTACT", "contact.title": "Let's make some noise?", "contact.dialog": "Message", "contact.p": "Tell me what you want to communicate. I reply by Instagram message or email.",
-    "contact.ig": "Open Instagram", "contact.mail": "Send email", "contact.card": "Contacts", "contact.tag": "replies within 24h",
+    "contact.ig": "Open Instagram", "contact.mail": "Send email", "contact.cv": "View CV", "contact.card": "Contacts", "contact.tag": "replies within 24h",
     "contact.foot": "© Bruna · This site works best on a large screen.", "contacts": "contacts",
     "off.text": "It is now safe to turn off your computer.", "off.back": "(click to go back)",
     ticker: ["lebuse marketing", "anarkitty handmade", "clothes room vintage", "strategy", "monthly planning", "reels", "posts", "stories", "content with personality"],
