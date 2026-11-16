@@ -664,6 +664,7 @@ function Services() {
                 <ul>{s.d.map((d) => <li key={d}>{d}</li>)}</ul>
               </div>
             ))}
+            <p className="svc-note">{t("services.rev")}</p>
           </div>
           <div className="status"><span>{list.length} {t("objects")}</span><span>{t("services.status")}</span></div>
         </Win>

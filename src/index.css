@@ -162,6 +162,7 @@ a.b95 { color: var(--dk); }
 .svc svg { width: 2.75rem; height: 2.75rem; grid-row: span 2; }
 .svc h3 { font: 700 1.05rem/1.2 var(--pixel); align-self: center; }
 .svc ul { padding-left: 1.1rem; font-size: 0.875rem; }
+.svc-note { grid-column: 1 / -1; font-size: 0.875rem; padding-top: 0.75rem; border-top: 1px dashed var(--mid); }
 .dialog h2 { font-family: var(--display); font-weight: 400; font-size: 1.7rem; line-height: 1.15; }
 .dialog p { margin-top: 0.5rem; }
 .dialog__btns { display: flex; gap: 0.5rem; justify-content: center; flex-wrap: wrap; padding: 0.625rem 0.5rem 0.75rem; }

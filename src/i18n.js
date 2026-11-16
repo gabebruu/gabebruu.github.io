@@ -14,10 +14,13 @@ export const dict = {
     "ghost.services": "SERVIÇOS", "services.title": "O que eu faço", "services.status": "Pede um orçamento no Contacto",
     services: [
       { i: "note", n: "Roteiros", d: ["Roteiros para vídeos nas redes sociais"] },
-      { i: "film", n: "Edição de vídeo", d: ["Edição de reels e vídeos para as redes"] },
-      { i: "image", n: "Capas e thumbnails", d: ["Capas para as redes sociais", "Capas para vídeos e thumbnails"] },
+      { i: "film", n: "Edição de vídeo", d: ["Reels até 1 min 30: 35 a 40 €", "Vídeos de 1 min 30 a 5 min (edição simples): 70 €"] },
+      { i: "image", n: "Capas e thumbnails", d: ["Capas para as redes sociais", "Capas para vídeos", "Thumbnail: 20 € cada"] },
+      { i: "insta", n: "Carrosséis e posts", d: ["Carrossel até 5 slides: 45 €", "Carrossel de 5 a 8 slides: 55 €", "Post estático: 25 €"] },
+      { i: "film", n: "Gravação de vídeos", d: ["Gravação com roteiro: 50 € até 2 h", "Depois das 2 h: 10 € por hora adicional", "Deslocação: custo da passagem, cobrado à parte"] },
       { i: "cal", n: "Gestão de redes sociais", d: ["Programação de publicações", "Edição de conteúdos", "Análise de perfil", "Ajuda a melhorar o perfil :)"] },
     ],
+    "services.rev": "Cada trabalho inclui uma revisão grátis. A partir da segunda, cada revisão custa mais 5 €.",
     "clippy.next": "Clipe: mostrar outra dica",
     clippy: [
       "Olá! Parece que estás à procura de alguém para tratar das tuas redes. Queres ajuda?",
@@ -57,10 +60,13 @@ export const dict = {
     "ghost.services": "SERVICES", "services.title": "What I do", "services.status": "Ask for a quote in Contact",
     services: [
       { i: "note", n: "Scripts", d: ["Scripts for social media videos"] },
-      { i: "film", n: "Video editing", d: ["Editing reels and videos for social media"] },
-      { i: "image", n: "Covers and thumbnails", d: ["Social media covers", "Video covers and thumbnails"] },
+      { i: "film", n: "Video editing", d: ["Reels up to 1 min 30: €35 to €40", "Videos from 1 min 30 to 5 min (simple editing): €70"] },
+      { i: "image", n: "Covers and thumbnails", d: ["Social media covers", "Video covers", "Thumbnail: €20 each"] },
+      { i: "insta", n: "Carousels and posts", d: ["Carousel up to 5 slides: €45", "Carousel of 5 to 8 slides: €55", "Static post: €25"] },
+      { i: "film", n: "Video recording", d: ["Recording with a script: €50 for up to 2 h", "After 2 h: €10 per extra hour", "Travel: cost of the ticket, charged separately"] },
       { i: "cal", n: "Social media management", d: ["Post scheduling", "Content editing", "Profile analysis", "Help improving your profile :)"] },
     ],
+    "services.rev": "Every job includes one free revision. From the second one, each revision costs €5 extra.",
     "clippy.next": "Paperclip: show another tip",
     clippy: [
       "Hi! It looks like you are looking for someone to run your social media. Need help?",
