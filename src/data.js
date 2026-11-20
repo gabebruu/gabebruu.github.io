@@ -20,6 +20,9 @@ export const projects = [
   p("lebuse_10", "sua-marca-precisa-de-apoio-2", "lebuse"),
   p("lebuse_11", "vai-alem-da-logo", "lebuse", true),
   p("lebuse_12", "o-que-postar", "lebuse"),
+  p("anarkitty_12", "agenda-novembro", "anarkitty"),
+  p("anarkitty_13", "cinzeiro-e-incensario", "anarkitty"),
+  p("anarkitty_11", "ceramicas-disponiveis-3", "anarkitty"),
   p("anarkitty_01", "link-na-bio", "anarkitty", true),
   p("anarkitty_02", "encomendas", "anarkitty", true),
   p("anarkitty_03", "macabrinhos", "anarkitty"),
@@ -45,8 +48,9 @@ export const ticker = ["lebuse marketing", "anarkitty handmade", "clothes room v
 
 // Incorporações oficiais do Instagram (@anarkitty.handmade). kind: reel | p
 // reels originais (comprimidos com ffmpeg para 540px em public/video; capa = frame aos 1s)
-const v = (file, title, tag) => ({ src: `video/${file}.mp4`, poster: `video/${file}.webp`, title, tag });
+const v = (file, title, tag, ratio = "9 / 16") => ({ src: `video/${file}.mp4`, poster: `video/${file}.webp`, title, tag, ratio });
 export const videos = [
+  v("anarkitty_12", "Agenda novembro", "anarkitty", "4 / 5"),
   v("anarkitty_01", "Antes e depois", "anarkitty"),
   v("anarkitty_02", "Porta-joias nuvem", "anarkitty"),
   v("anarkitty_03", "Quando vejo o meu próprio serviço", "anarkitty"),

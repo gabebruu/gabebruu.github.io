@@ -564,7 +564,7 @@ function Video({ e }) {
     <figure className="reel">
       <figcaption className="reel__bar"><span>{e.title}</span><i aria-hidden="true">x</i></figcaption>
       <div className="reel__body reel__body--video">
-        <video src={e.src} poster={e.poster} controls preload="none" playsInline onPlay={solo} aria-label={e.title} />
+        <video src={e.src} poster={e.poster} style={{ aspectRatio: e.ratio }} controls preload="none" playsInline onPlay={solo} aria-label={e.title} />
       </div>
     </figure>
   );
